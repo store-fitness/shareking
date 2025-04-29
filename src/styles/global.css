@@ -1,0 +1,25 @@
+/* src/styles/global.css */
+html, body {
+  scroll-behavior: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+#___gatsby, #gatsby-focus-wrapper {
+  height: auto; /* Assure que le conteneur ajuste sa hauteur */
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  margin: 0 auto;
+  padding: 10px;
+ 
+}
+a {
+  text-decoration: none;
+  color:'black';
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}

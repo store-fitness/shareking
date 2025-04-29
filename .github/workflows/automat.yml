@@ -1,0 +1,50 @@
+name: shareking Build and Deploy to Hostinger FTP
+
+on:
+  push:
+    branches: ['main'] # Exécute le workflow sur un push vers la branche principale
+  workflow_dispatch: # Permet de lancer manuellement le workflow
+
+jobs:
+  build-and-deploy:
+    name: Build Gatsby Site and Deploy via FTP
+    runs-on: ubuntu-latest # Utilise une machine virtuelle Ubuntu
+
+    steps:
+      # Étape 1 : Récupérer le code source
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Étape 2 : Configurer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Étape 3 : Installer les dépendances
+      - name: Install dependencies
+        run: |
+          npm install --force
+
+      # Étape 4 : Construire le site Gatsby
+      - name: Build Gatsby site
+        run: |
+          npm run build
+
+      # Étape 5 : Déployer les fichiers via FTP sur Hostinger
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 157.173.208.248 # Adresse du serveur FTP
+          username: u584844934.shareking.eu # Nom d'utilisateur FTP
+          password: 1234.0zWx # Mot de passe FTP
+          local-dir: ./public/ # Dossier build Gatsby à envoyer
+          server-dir: /public_html/ # Répertoire cible sur le serveur
+          protocol: ftps # Forcer le FTP sécurisé passif
+          passive: true
+          oncurrency: 1 # Upload un fichier à la fois
+          exclude: |
+            **/node_modules/**
+            **/debug/**
+            **/*.map
+            **/~partytown/**
