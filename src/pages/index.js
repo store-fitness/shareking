@@ -349,7 +349,7 @@ const IndexPage = () => {
                 flexWrap: 'wrap',
               }}
             >
-              {productInfo?.keywords?.map((tag, index) => (
+              {productInfo?.keyword?.map((tag, index) => (
                 <Box
                   key={index}
                   sx={{ display: 'flex', flexDirection: 'column' }}
