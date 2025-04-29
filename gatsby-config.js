@@ -62,27 +62,8 @@ module.exports = {
       },
     },
 
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blogs',
-        path: `${__dirname}/src/projects/blogs/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'reviews',
-        path: `${__dirname}/src/projects/reviews/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'products',
-        path: `${__dirname}/src/projects/products/`,
-      },
-    },
+   
+   
 
     {
       resolve: 'gatsby-source-filesystem',

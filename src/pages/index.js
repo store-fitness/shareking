@@ -1,18 +1,16 @@
 import * as React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import ProductTemplate from '../template/product';
-import { currencyList } from '../components/variableStatic';
+ import { currencyList } from '../components/variableStatic';
 import { Divider, Grid, Typography, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import Currency from '../components/Currency';
 import { Box } from '@mui/system';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-
+import '../styles/global.css';
 const IndexPage = () => {
     const [currentIndex, setCurrentIndex] = React.useState(0);
      const [currency, setCurrency] = React.useState(currencyList[0]);
-     const [isLoading, setIsLoading] = React.useState(true);
-
+ 
   const data = useStaticQuery(graphql`
     query {
      product:allContentfulSharekingEu {

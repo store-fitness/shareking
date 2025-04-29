@@ -1,20 +1,14 @@
 import React from 'react';
 import {
   Box,
-  Grid,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
+
   FormControl,
-  InputLabel,
+
   MenuItem,
   Select,
 } from '@mui/material';
 const Currency = ({ currency, currencyList, setCurrency }) => {
   const handleChange = (event) => {
-    console.log(event.target.value);
     const equal = currencyList.filter(
       (item) => item.code === event.target.value
     );
